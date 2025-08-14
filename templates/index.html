@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>página inicial do restaurante</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('cardapio') }}" class="nav-link">Cardápio</a>
+            <a href="#Restaurante" class="nav-link">Restaurante</a>
+            <a href="#Contato" class="nav-link">Contanto</a>
+        </nav>
+        <div class="box-btn-actions">
+            <form action="" method="post">
+                <button class="btn-action" name="botaoParaCarrinho">Carrinho</button>
+                <button class="btn-action" name="botaoDeslogarLogar">{{mensagem}}</button>
+            </form>
+         </div>
+    </header>
+
+
+    <main>
+    <div>
+        <h1>Bem vindo ao restaurante sabor é arte!</h1>
+        <H1>Horario de funcionamento:</H1>
+        <p>terça-sex 11:00 - 23:00</p>
+        <p>sab-dom 11:00-02:00</p>
+    </div>
+    
+    
+        <div>
+            <h1>Oferecemos:</h1>
+            <li>Bebidas;</li>
+            <li>Pratos de entrada;</li>
+            <li>Acompanhametos;</li>
+            <li>Sobremesas.</li>
+        </div>
+
+            <h1>Opções de bebidas:</h1>
+            <div class="carrosel">
+
+                <input type="radio" name="radio-btn" id="radio1" checked>
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+                <input type="radio" name="radio-btn" id="radio5">
+                <input type="radio" name="radio-btn" id="radio6">
+                <input type="radio" name="radio-btn" id="radio7">
+                <input type="radio" name="radio-btn" id="radio8">
+                <input type="radio" name="radio-btn" id="radio9">
+                <input type="radio" name="radio-btn" id="radio10">
+                <input type="radio" name="radio-btn" id="radio11">
+                <input type="radio" name="radio-btn" id="radio12">
+                <input type="radio" name="radio-btn" id="radio13">
+                 <input type="radio" name="radio-btn" id="radio14">
+
+                    <div class="slides">
+                        <div class="slide s1">
+                            <img src="{{ url_for('static', filename='imagens/vinho.jpg') }}" alt="Vinho Le Mortelle">
+                            <h4>Vinho Le Mortelle</h4>
+                            <h4>Preço: 350,50$</h4>
+                        </div>
+                        <div class="slide">
+                            <img src="{{ url_for('static', filename='imagens/champgne.jpg') }}" alt="Champgne Bollinger">
+                            <h4>Champgne Bollinger</h4>
+                            <h4>Preço: 750,00$</h4>
+                        </div>
+                        <div class="slide">
+                            <img src="{{ url_for('static', filename='imagens/cerveja skol.jpg') }}" alt="Cerveja Skol">
+                            <h4>Cerveja Skol de garrafa</h4>
+                            <h4>Preço: 11,00$</h4>
+                        </div>
+                        <div class="slide">
+                            <img src="{{ url_for('static', filename='imagens/cerveja amistel.jpg') }}" alt="Cerveja Amistel">
+                            <h4>Cerveja Amistel de latinha</h4>
+                            <h4>Preço: 8,00$</h4>
+                        </div>
+                        <div class="slide">
+                            <img src="{{ url_for('static', filename='imagens/Coca-cola de garrafa.jpg') }}" alt="Coca-Cola 1L">
+                            <h4>Coca-Cola 1L</h4>
+                            <h4>Preço: 10,00$</h4>
+                        </div>
+                        <div class="slide">
+                            <img src="{{ url_for('static', filename='imagens/Coca-Cola.jpg') }}" alt="Coca-Cola latinha">
+                            <h4>Coca-Cola latinha</h4>
+                            <h4>Preço: 6,00$</h4>
+                        </div>
+                        <div class="slide">
+                            <img src="{{ url_for('static', filename='imagens/pepsi de garrafa.jpg') }}" alt="Pepsi 1L">
+                            <h4>Pepsi 1L</h4>
+                            <h4>Preço: 9,50$</h4>
+                        </div>
+                        <div class="slide">
+                            <img src="{{ url_for('static', filename='imagens/pepsi lata2.jpg') }}" alt="Pepsi latinha">
+                            <h4>Pepsi latinha</h4>
+                            <h4>Preço: 5,50$</h4>
+                        </div>
+                        <div class="slide">
+                            <img src="{{ url_for('static', filename='imagens/coqueteis3.jpg') }}"  alt="Coquetel 3">
+                        </div>
+                        <div class="slide">
+                            <img src="{{ url_for('static', filename='imagens/coqueteis2.jpg') }}" alt="Coquetel 2">
+                        </div>
+                        <div class="slide">
+                            <img src="{{ url_for('static', filename='imagens/coqueteis1.jpg') }}"  alt="Coquetel 1">
+                            <p>400ml: 10$</p>
+                            <p>550ml: 14,50$</p>
+                            <p>700ml: 17$</p>
+                        </div>
+                        <div class="slide">
+                            <img src="{{ url_for('static', filename='imagens/suco de goiaba.jpg') }}" alt="Suco de Goiaba">
+                            <h4>Suco de Goiaba</h4>
+                            <h4>Preço: 3,00$</h4>
+                        </div>
+                        <div class="slide">
+                            <img src="{{ url_for('static', filename='imagens/suco de laranja.jpg') }}" alt="Suco de Laranja">
+                            <h4>Suco de Laranja</h4>
+                            <h4>Preço: 3,00$</h4>
+                        </div>
+                        <div class="slide">
+                            <img src="{{ url_for('static', filename='imagens/suco de maracujá.jpg') }}" alt="Suco de Maracujá">
+                            <h4>Suco de Maracujá</h4>
+                            <h4>Preço: 3,00$</h4>
+                        </div>
+                    </div>
+
+                <div class="manual-navigation">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                    <label for="radio4" class="manual-btn"></label>
+                    <label for="radio5" class="manual-btn"></label>
+                    <label for="radio6" class="manual-btn"></label>
+                    <label for="radio7" class="manual-btn"></label>
+                    <label for="radio8" class="manual-btn"></label>
+                    <label for="radio9" class="manual-btn"></label>
+                    <label for="radio10" class="manual-btn"></label>
+                    <label for="radio11" class="manual-btn"></label>
+                    <label for="radio12" class="manual-btn"></label>
+                    <label for="radio13" class="manual-btn"></label>
+                    <label for="radio14" class="manual-btn"></label>
+                </div>
+            </div>
+
+            <h1>Pratos de entrada:</h1>
+
+            <div class="pratos">
+
+            <div class="carrosel">
+                <input type="radio" name="btn-radio" id="radio15" checked>
+                <input type="radio" name="btn-radio" id="radio16">
+                <input type="radio" name="btn-radio" id="radio17">
+                <input type="radio" name="btn-radio" id="radio18">
+                <input type="radio" name="btn-radio" id="radio19">
+                <input type="radio" name="btn-radio" id="radio20">
+                <input type="radio" name="btn-radio" id="radio21">
+                <input type="radio" name="btn-radio" id="radio22">
+                <input type="radio" name="btn-radio" id="radio23">
+                <input type="radio" name="btn-radio" id="radio24">
+
+                <div class="slides"> 
+                    <div class="slide-s2">
+                       <img src="{{ url_for('static', filename='imagens/caldo de camarão.jpg') }}" alt="Caldo de camarão">1
+                        <h4>Caldo de Camarão</h4>
+                        <h4>Preço:45,30$</h4> 
+                    </div>
+
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename='imagens/vaca atolada.jpg') }}" alt="vaca atolada">2
+                        <h4>Vaca atoalada (carne de boi com macaxeira)</h4>
+                        <h4>Preço:75,00$</h4>
+                    </div>
+
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename='imagens/galinha de capoeira.jpg') }}" alt="Galinha de capoeira">3
+                        <h4>Galinha Capoeira</h4>
+                        <h4>Preço:25,99$</h4> 
+                    </div>
+
+                    <div class="slide">
+                         <img src="{{ url_for('static', filename='imagens/lasanha.jpg') }}" alt="Lasanha">4
+                        <h4>Lasanha</h4>
+                        <h4>Preço:35,00$</h4>
+                    </div>
+
+                    <div class="slide">
+                      <img src="{{ url_for('static', filename='imagens/macarrão.jpg') }}" alt="macarrão">5
+                        <h4>Macarrão</h4>
+                        <h4>Preço:19,90$</h4>  
+                    </div>
+
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename='imagens/cuscuz.jpg') }}" alt="cuscuz">6
+                        <h4>cuscuz</h4>
+                        <h4>Preço:12,00$</h4>
+                    </div>
+
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename='imagens/pirão.jpg') }}" alt="pirão">7
+                        <h4>Pirão</h4>
+                        <h4>preço:23,70$</h4>
+                    </div>
+
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename='imagens/picanha.jpg') }}" alt="picanha">8
+                        <h4>Picanha</h4>
+                        <h4>Preço:70,99$</h4>
+                    </div>
+
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename='imagens/arroz temperado.jpg') }}" alt="arroz temperado">9
+                        <h4>Arroz temperado</h4>
+                        <h4>Preço:10,00$</h4> 
+                    </div>
+
+                    <div class="slide">
+                         <img src="{{ url_for('static', filename='imagens/arroz puro.jpg') }}" alt="arroz puro">10
+                        <h4>Arroz puro</h4>
+                        <h4>Preço:6,70$</h4>
+                    </div>
+                </div>
+                <div class="manual-navigation">
+                    <label for="radio26" class="manual-btn"></label>
+                    <label for="radio27" class="manual-btn"></label>
+                    <label for="radio28" class="manual-btn"></label>
+                    <label for="radio29" class="manual-btn"></label>
+                    <label for="radio30" class="manual-btn"></label>
+                    <label for="radio31" class="manual-btn"></label>
+                    <label for="radio32" class="manual-btn"></label>
+                    
+                </div>
+
+         </div>
+
+
+
+            <h1>Acompanhamentos:</h1>
+
+            <div class="acompanhamentos">
+                <div class="carrosel">
+
+                <input type="radio" name="btn-radio" id="radio25" checked>
+                <input type="radio" name="btn-radio" id="radio26">
+                
+                <div class="slides">
+                    <div class="slide-s3">
+                        <img src="{{ url_for('static', filename='imagens/purê de batata.jpg') }}" alt="purê de batata">
+                        <h4>O purê de batatas é por cortesia da casa, caso o cliente compre qualquer um prato de entrada.</h4>
+                    </div>
+
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename='imagens/vinagrete.jpg') }}" alt="vinagrete">2
+                        <h4>A vinagrete é por cortesia da casa, caso o cliente compre qualquer um prato de entrada.</h4>
+                    </div>
+
+                    <div class="manual-navigation">
+                    <label for="radio25" class="manual-btn"></label>
+                    <label for="radio26" class="manual-btn"></label>
+                    
+                </div>
+                </div>
+
+            </div>        
+            <h1>Sobremesas:</h1>
+            <div class="sobremesas">
+              
+                <div class="carrosel">
+                    <input type="radio" name="btn-radio" id="radio27">
+                    <input type="radio" name="btn-radio" id="radio28">
+                    <input type="radio" name="btn-radio" id="radio29">
+                    <input type="radio" name="btn-radio" id="radio30">
+                    <input type="radio" name="btn-radio" id="radio31">
+                    <input type="radio" name="btn-radio" id="radio32">
+                    <input type="radio" name="btn-radio" id="radio33">
+                    <input type="radio" name="btn-radio" id="radio34">
+
+                    <div class="slides-s4">
+                        <img src="{{ url_for('static', filename='imagens/sorvete.jpg') }}" alt="sorvete">3
+                        <h4>Tigela de Sorvete</h4>
+                        <h4>Preço:6,99$</h4>
+                    </div>
+
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename='imagens/sorvete com brownie.jpg') }}" alt="sorvete com brownie">4
+                        <h4>Sorvete com brownie</h4>
+                        <h4>Preço:15,50$</h4>
+                    </div>
+
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename='imagens/pudim.jpg') }}" alt="pudim">5
+                        <h4>Pudim</h4>
+                        <h4>Preço:8,00</h4>
+                    </div>
+
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename='imagens/mine bolinho.jpg') }}" alt="mine bolinho">6
+                        <h4>Mine bolinho</h4>
+                        <h4>Preço:14,00$</h4>
+                    </div>
+
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename='imagens/pavê.jpg') }}" alt="pavê" >7
+                        <h4>Pavê (diferente da piada esse não é só para ver e sim para se saborear)</h4>
+                        <h4>Preço:</h4>
+                        <h4>Por pedaço:6,50$</h4>
+                        <h4>Completo:40,00$</h4>
+                    </div>
+
+                    <div class="manual-navigation">
+                    <label for="radio27" class="manual-btn"></label>
+                    <label for="radio28" class="manual-btn"></label>
+                    <label for="radio29" class="manual-btn"></label>
+                    <label for="radio30" class="manual-btn"></label>
+                    <label for="radio31" class="manual-btn"></label>
+                    <label for="radio32" class="manual-btn"></label>
+                    <label for="radio33" class="manual-btn"></label>
+                    <label for="radio34" class="manual-btn"></label>
+                </div>
+                </div>
+            </div>
+        </div>
+
+            <h1>Agradecemos a preferência! </h1>
+            <h1>volte sempre ao restaurante Sabor é Arte!</h1>
+            <h2>Em alguns instantes seu pedido estará pronto!</h2>
+
+            <h1>Dados da empresa:</h1>
+            <li>Proprietária: Voinha;</li>
+            <li>Gerente: Valter Machado;</li>
+            <li>Socios da empresa: Renan dos Anjos, João vitor e Marcus Vinícius;</li>
+            <li>Garçom: Chupetinha;</li>
+            <li>faxineiro: SR.While;</li>
+            <li>cozinheira: Ela a perfeita e que nunca erra A tabelha de mesa;</li>
+            <li>atendente de pedidos: Print NÃO É VARIÁVEL.</li>
+
+
+        </div>
+    </main>
+</body>
+</html>

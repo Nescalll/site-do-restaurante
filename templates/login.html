@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_login.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
+rel='stylesheet'>
+</head> 
+<body>
+    <div class="login-form">
+        <div class="img">
+            <img src="{{ url_for('static', filename='img/imagem1.jpg') }}" alt="img">
+        </div>
+        <div>
+            <form action="" method="POST">
+                <pre id="mensagem">{{ mensagem | default('')}}</pre>
+                <label for="nome"> nome
+                </label>
+                
+                <div class="input-box">
+                    <input class="input"   type="text" name="nomeForm" id="nome"><br>
+                    <i class="bx bxs-lock-alt"></i>
+                </div>
+                <br>
+                <label for="senha"> senha</label>
+                <div class="input-box">
+                    <input class="input"   type="password" name="senhaForm" id="senha"><br>
+                    <i class="bx bxs-lock-alt"></i>
+                </div>
+                <a href="registrar">esqueceu a senha</a>
+                <a href="{{ url_for('registrar') }}">criar conta </a>
+               <input type="submit" value="logar" onclick="coletar_dados()">
+            </form>
+        </div>
+    </div>
+
+    <script>
+    // Reseta o formulário quando a página é carregada
+    window.onload = function() {
+        document.getElementById("meuFormulario").reset();
+    };
+</script>
+</body>
+</html> 

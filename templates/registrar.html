@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <!--<link rel="stylesheet" href="style.css">-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="login-form">
+        <div class="img">
+            <img src="{{ url_for('static', filename='img/principal1.jpg') }}"alt="img">
+        </div>
+
+        <div>
+            <h1 class="h1">Crie sua conta</h1>
+
+            <div class="alert alert-{{ category }}"><p style="color: aqua;">{{ mensagem |default(" ")}}</p></div>
+
+            <form action="" method="post">
+                <label for="nome">Nome</label>
+                <div class="input-box">
+                    <input class="input" type="text" name="nome" id="nome">
+                    <i class='bx bx-user'></i>
+                </div>
+
+                <label for="e-mail">E-mail</label>
+                <div class="input-box">
+                    <input class="input" type="email" name="email" id="e-mail">
+                </div>
+
+                <label for="senha">Senha</label>
+                <div class="input-box">
+                    <input class="input" type="password" name="senha" id="senha">
+                    <i class="bx bxs-lock-alt"></i>
+                </div>
+
+                <label for="confirmar_senha">Confirmação da senha</label>
+                <div class="input-box">
+                    <input class="input" type="password" name="confirmar_senha" id="confirmar_senha">
+                    <i class="bx bxs-lock-alt"></i>
+                </div>
+
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

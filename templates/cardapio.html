@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/carrinho.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <p>Filtros</p>
+        <div class="filtros">
+            <select name="filtrarPorCategorias " id="categorias">
+                <option value="">todos</option>
+                <option value="">bebidas</option>
+                <option value="">pratos</option>
+                <option value="">sobremesas</option>
+            </select>
+            <select name="filtrarPorCategorias " id="categorias">
+                <option value="">todos</option>
+                <option value="">0 - 40</option>
+                <option value="">40 - 100</option>
+                <option value="">100</option>
+            </select>
+        </div>
+    </header>
+    <div class="principal">
+        {% for produto in produtos%}
+            <div class="pedido">
+                <img src="{{ url_for('static', filename='imagens/' + produto.ilustracao) }}" alt="">
+                <p>Preço : {{produto['nome']}}</p>
+                <p>valor: {{produto['valor']}}</p>
+                <form action="" method="post">
+                    <button name="botao" value="add-{{ produto.id ~ '' }} ">Adicionar ao carrinho</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+    <script>
+        window.onload = function() {
+          document.getElementById("meuFormulario").reset();
+        };
+    </script>
+</body>
+</html>
