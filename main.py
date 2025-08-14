@@ -72,6 +72,7 @@ def registrar():
 @login_required
 def carrinho():
     usuario_id = current_user.id
+    pedidosDoUsuario = db.session.query(Pedido).filter_by(usuario_id=usuario_id).first()
     if(request.method == "POST"):
         botaoAtivado = request.form.get('botao').split('-')
         produto_atualizar = db.session.query(ItemPedido).filter_by(id=int(botaoAtivado[1])).first() 
@@ -88,10 +89,11 @@ def carrinho():
             db.session.commit()
 
     historico_visivel=[]
-    historico = db.session.query(ItemPedido).filter_by(pedido_id=usuario_id).all()
+    historico = db.session.query(ItemPedido).filter_by(pedido_id=pedidosDoUsuario.id).all()
     for produto in historico:
         produto_visivel = db.session.query(Produto).filter_by(id=produto.id).first()
         historico_visivel.append({'nome':produto_visivel.nome, "valor":produto_visivel.valor, "quantidade":produto.quantidade, "ilustracao":produto_visivel.ilustracao, "id":produto.id})
+    print(historico_visivel)
     return render_template('carrinho.html', carrinho=historico_visivel)
 @app.route('/cardapio', methods=['GET', 'POST'])
 def cardapio():
@@ -102,20 +104,24 @@ def cardapio():
         all_produtos.append({'nome':produto.nome, 'valor':produto.valor, 'id':produto.id, 'ilustracao':produto.ilustracao})
     if (request.method == "POST"):
         botaoAtivado = request.form.get('botao').split('-')
-        print(botaoAtivado)
         idDoProduto = int(botaoAtivado[1])
         produto_pedido = db.session.query(Produto).filter_by(id=idDoProduto).first()
-        pedidoDoUsuario = db.session.query(Pedido).filter_by(id=idDoProduto).first()
-        pedidoExistente = db.session.query(ItemPedido).filter_by(id=usuario_id).first()
+        pedidoDoUsuario = db.session.query(Pedido).filter_by(usuario_id=usuario_id).first()
         if (not pedidoDoUsuario):
             novo_pedido = Pedido(usuario_id = usuario_id, total=produto_pedido.valor)
-            novo_item = ItemPedido(produto_id=produto_pedido.id, quantidade=1, preco_unitario=produto_pedido.valor)
+            db.session.add(novo_pedido)
+            db.session.commit()
+            pedidoDoUsuario = db.session.query(Pedido).filter_by(usuario_id=usuario_id).first()
+            novo_item = ItemPedido(pedido_id = pedidoDoUsuario.id ,produto_id=produto_pedido.id, quantidade=1, preco_unitario=produto_pedido.valor)
             db.session.add(novo_pedido)
             db.session.add(novo_item)
+            db.session.commit()
+            return render_template('cardapio.html', produtos=all_produtos)
+        pedidoExistente = db.session.query(ItemPedido).filter_by(produto_id=idDoProduto, pedido_id=pedidoDoUsuario.id).first()
         if(not pedidoExistente):
             pedidoDoUsuario.total += produto_pedido.valor
             db.session.commit()
-            novo_item = ItemPedido(produto_id=produto_pedido.id, quantidade=1, preco_unitario=produto_pedido.valor)
+            novo_item = ItemPedido(pedido_id = pedidoDoUsuario.id,produto_id=produto_pedido.id, quantidade=1, preco_unitario=produto_pedido.valor)
             db.session.add(novo_item)
             db.session.commit()
         else:

@@ -7,25 +7,25 @@
 </head>
 <body>
     <h1>Aqui está seus produtos</h1>
-    {% if carrinho %}
-        {% for produto in carrinho %}
-            <div nome="produtos">
-                <img src="{{ url_for('static', filename='imagens/' + produto.ilustracao) }}" alt="">               
-                <p>nome: {{produto['nome']}}</p>
-                <p>quantidade: {{produto['quantidade']}}</p>
-                <p>valor: {{produto['valor']}}</p>
-                <form action="" method="post">
-                    <button name="botao" value="add-{{ produto.id ~ '' }} ">Adicionar</button>
-                    <button name="botao" value="del-{{ produto.id ~ '' }} ">Excluir</button>
-                    <button name="botao" value="ret-{{ produto.id ~ '' }} ">Retirar</button>
-                </form>
-            </div>
-        {% endfor %}
-    {% else %}
+    {% if not carrinho %}
         <h1>Nenhum produto no carrinho</h1>
         <p>Vá para o <a href="{{ url_for('cardapio') }}">cardapio</a> para adicionar mais elemento no carrinho</p>
+    {% else %}
+        {% for produto in carrinho %}
+        <div nome="produtos">
+            <img src="{{ url_for('static', filename='imagens/' + produto.ilustracao) }}" alt="">               
+            <p>nome: {{produto['nome']}}</p>
+            <p>quantidade: {{produto['quantidade']}}</p>
+            <p>valor: {{produto['valor']}}</p>
+            <form action="" method="post">
+                <button name="botao" value="add-{{ produto.id ~ '' }} ">Adicionar</button>
+                <button name="botao" value="del-{{ produto.id ~ '' }} ">Excluir</button>
+                <button name="botao" value="ret-{{ produto.id ~ '' }} ">Retirar</button>
+            </form>
+        </div>
+        {% endfor %}
     {% endif %}
-    
+        
     <script>
     window.onload = function() {
         document.getElementById("meuFormulario").reset();
