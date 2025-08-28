@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/carrinho.css') }}">
     <title>pedido</title>
 </head>
 <body>
@@ -12,15 +13,17 @@
         <p>Vá para o <a href="{{ url_for('cardapio') }}">cardapio</a> para adicionar mais elemento no carrinho</p>
     {% else %}
         {% for produto in carrinho %}
-        <div nome="produtos">
-            <img src="{{ url_for('static', filename='imagens/' + produto.ilustracao) }}" alt="">               
-            <p>nome: {{produto['nome']}}</p>
-            <p>quantidade: {{produto['quantidade']}}</p>
-            <p>valor: {{produto['valor']}}</p>
+        <div class="produtos">
+            <div class="img">
+                <img src="{{ url_for('static', filename='imagens/' + produto.ilustracao) }}" alt="">   
+            </div>         
+            <p><strong>nome: {{produto['nome']}}</strong></p>
+            <p><strong>Unidade: {{produto['quantidade']}}</strong></p>
+            <p><strong>valor: {{produto['valor']}}</strong></p>
             <form action="" method="post">
-                <button name="botao" value="add-{{ produto.id ~ '' }} ">Adicionar</button>
-                <button name="botao" value="del-{{ produto.id ~ '' }} ">Excluir</button>
-                <button name="botao" value="ret-{{ produto.id ~ '' }} ">Retirar</button>
+                <button name="botao" value="add-{{ produto.id ~ '' }} " class="btn-action">Adicionar</button>
+                <button name="botao" value="del-{{ produto.id ~ '' }} " class="btn-action">Excluir</button>
+                <button name="botao" value="ret-{{ produto.id ~ '' }} " class="btn-action">Retirar</button>
             </form>
         </div>
         {% endfor %}

@@ -1,0 +1,31 @@
+/* Estilo para o container de produtos */
+.principal {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Estilo para cada card de produto */
+.pedido {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Estilo para as imagens */
+.pedido img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para os botões */
+.pedido button {
+    background-color: #4CA;
+}

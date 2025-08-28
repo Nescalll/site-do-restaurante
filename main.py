@@ -93,11 +93,13 @@ def carrinho():
     for produto in historico:
         produto_visivel = db.session.query(Produto).filter_by(id=produto.id).first()
         historico_visivel.append({'nome':produto_visivel.nome, "valor":produto_visivel.valor, "quantidade":produto.quantidade, "ilustracao":produto_visivel.ilustracao, "id":produto.id})
-    print(historico_visivel)
     return render_template('carrinho.html', carrinho=historico_visivel)
 @app.route('/cardapio', methods=['GET', 'POST'])
 def cardapio():
-    usuario_id = current_user.id
+    if(request.method == 'POST'):
+        if(not(current_user.is_authenticated)):
+            return redirect(url_for('login'))
+        usuario_id = current_user.id
     all_produtos = []
     produtos = db.session.query(Produto)
     for produto in produtos:
